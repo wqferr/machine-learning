@@ -1,5 +1,5 @@
-#include "linalg/linalg.h"
-#include "linalg/matrix.h"
+#include "linalg/include/linalg.h"
+#include "linalg/include/matrix.h"
 
 int main(void) {
     LINALG_SCALAR ma[] = {

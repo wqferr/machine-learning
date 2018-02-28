@@ -68,14 +68,14 @@ SRC_PTRN := "*."$(SRC_FILE)
 #     LIBS := m GL
 #
 
-LIBS :=
+LIBS := m
 
 
 #
 # Compile flags
 #
 
-C_FLAGS = -L$(LIB_DIR) -I$(INC_DIR) $(addprefix -l,$(LIBS))
+C_FLAGS = -Wall -L$(LIB_DIR) -I$(INC_DIR) $(addprefix -l,$(LIBS))
 
 
 #
