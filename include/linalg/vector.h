@@ -4,8 +4,8 @@
 typedef struct vector vector;
 
 
-#include "linalg/include/linalg.h"
-#include "linalg/include/matrix.h"
+#include "linalg/linalg.h"
+#include "linalg/matrix.h"
 
 /* Operation was not successful due to one or more of
  * the operands' dimensions */

@@ -4,8 +4,8 @@
 typedef struct matrix matrix;
 
 
-#include "linalg/include/linalg.h"
-#include "linalg/include/vector.h"
+#include "linalg/linalg.h"
+#include "linalg/vector.h"
 
 /* Operation was not successful due to one or more of
  * the operands' dimensions */
