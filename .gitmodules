@@ -1,0 +1,3 @@
+[submodule "src/linalg"]
+	path = src/linalg
+	url = https://github.com/wqferr/linalg
