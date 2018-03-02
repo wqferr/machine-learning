@@ -4,18 +4,22 @@
 
 #include "linalg/include/linalg.h"
 #include "linalg/include/matrix.h"
+
 #include "knn.h"
 #include "kmeans.h"
+#include "dwnn.h"
 
 #define N 6
 
 int knn_main(void);
 int kmeans_main(void);
+int dwnn_main(void);
+
 void vec_print(const vector *v);
 
 
 int main(void) {
-    return kmeans_main();
+    return dwnn_main();
 }
 
 
@@ -116,6 +120,49 @@ int kmeans_main(void) {
         vec_del(dataset[i]);
     }
     kmeans_free(kmeans);
+
+    return 0;
+}
+
+
+int dwnn_main(void) {
+    int i, err;
+    LINALG_SCALAR mv[N] = {
+        1.875, 2.5, 2.875, 3, 2.875, 2.5};
+    LINALG_SCALAR md[N][1] = {
+        {1},
+        {2},
+        {3},
+        {4},
+        {5},
+        {6}};
+    LINALG_SCALAR mq[1] = {2.4};
+    LINALG_SCALAR result;
+    vector *dataset[N];
+    vector *query;
+
+    for (i = 0; i < N; i++) {
+        vec_new(&dataset[i], md[i], 1);
+    }
+    vec_new(&query, mq, 1);
+
+    err = dwnn(
+            dataset,
+            mv,
+            N,
+            1,
+            query,
+            &result);
+    if (err != 0) {
+        printf("Error code: %d\n", err);
+    } else {
+        printf("Result: %f\n", result);
+    }
+
+    vec_del(query);
+    for (i = 0; i < N; i++) {
+        vec_del(dataset[i]);
+    }
 
     return 0;
 }
